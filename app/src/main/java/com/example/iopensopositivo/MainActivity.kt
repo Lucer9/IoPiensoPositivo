@@ -20,7 +20,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         fun getRandomMessage(): String{
-                return database[Random.nextInt( 0, database.size-1)]
+                val num = Random.nextInt( 0, database.size-1)
+                posicion = num
+                return database[num]
         }
 
         fun next(view: View) {
@@ -42,7 +44,7 @@ class MainActivity : AppCompatActivity() {
 
         fun goTo(view: View){
                 if(textInput.text.isNullOrEmpty()){
-                        Toast.makeText(this, "Esta vacio veees???", Toast.LENGTH_LONG).show()
+                        texto.text = getRandomMessage()
 
                 }else{
                         val num = textInput.text!!.toString().toInt()
